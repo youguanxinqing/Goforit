@@ -1,3 +1,5 @@
+[root path](../readme.md)
+
 # 知识点
 GOROOT：Go 语言安装根目录的路径，也就是 GO 语言的安装路径。
 GOPATH：若干工作区目录的路径。是我们自己定义的工作空间。
@@ -43,3 +45,6 @@ go build -v 能够显示编译代码包的名称。
 package semaphore // import "golang.org/x/sync/semaphore"
 ```
 - 注释后面的路径并不真实存在，但可以使用。如：go get "golang.org/x/..."，之后会去真实路径 github 上下载，但还需要在 golang.org 的后端做些设置。
+
+
+[root path](../readme.md)

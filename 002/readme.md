@@ -76,7 +76,7 @@ flag.CommandLine.Usage = func() {
 }
 ```
 - flag.NewFlagSet() 中的第二个参数是常量。**flag.ExitOnError** 表示：当命令跟 --help 或者参数不正确时，打印 Usage 信息后以状态码 2 结束当前程序。**flag.PanicOnError** 表示：最后抛出运行时恐慌。
-![Exit VS Panic](/two/png/108B0E92-40DD-4CAA-9402-B7D6AE8D1C6A.png)
+![Exit VS Panic](/002/png/108B0E92-40DD-4CAA-9402-B7D6AE8D1C6A.png)
 
 上述处理方式会改变 flag.CommandLine 的默认行为，更推荐的方式是创建一个自己的 CommandLine：
 ```go

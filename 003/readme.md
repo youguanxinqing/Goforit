@@ -1,3 +1,4 @@
+[root path](../readme.md)
 # 知识点
 
 **库源码文件**是不能直接运行的源码文件。作用：存放程序实体(Go 语言中程序实体是变量，常量，函数，结构体和接口的统称)。
@@ -53,3 +54,4 @@ import (
 	zt "gostudy/003/samebagname/zhong/ting"
 )
 ```
+[root path](../readme.md)

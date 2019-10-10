@@ -30,3 +30,6 @@
 [007](007/readme.md)
 - 切片与数组的关系
 - 切片的底层原理
+
+[008](008/readme.md)
+- container/list 用法

@@ -37,3 +37,11 @@
 [009](009/readme.md)
 - map 的底层实现原理
 - map 使用时的注意事项
+
+[010](010/readme.md)
+- 通道的基本操作
+- 通道操作什么时候会 panic
+
+
+---
+https://github.com/hyper0x/Golang_Puzzlers

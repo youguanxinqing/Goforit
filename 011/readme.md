@@ -53,7 +53,7 @@ case _, ok := <- intChan:
 - 每个 case 都必须有一个发送或接受的通道操作。接收表达式有短变量声明时，允许赋值符号左边存在一个或者两个表达式(这类表达式允许被赋值)，当这样的 case 被求值时，它包含的多个表达式总会从左到右的顺序被求值。
 - 一个 select 语句中的多个 case 分支，求值时存在先上后下的顺序。
 - 当 case 对应的通道操作处于阻塞状态时，就认为该 case 不满足选择条件。
-- **仅当 select 语句中所有 case 表达式都被求值完毕后，它才会开始选择候选分支。**如果没有满足的 case，也没有 default case，select 进入阻塞状态。直到至少有一个 case 满足条件，select 所在 goroutine 被唤醒，进入该 case 执行分支语句。
+- **仅当 select 语句中所有 case 表达式都被求值完毕后，它才会开始选择候选分支。** 如果没有满足的 case，也没有 default case，select 进入阻塞状态。直到至少有一个 case 满足条件，select 所在 goroutine 被唤醒，进入该 case 执行分支语句。
 - 如果 select 语句发现多个 case 都满足选择条件，那么它会用一种伪随机算法在这些分支中选择一个并执行。
 - 一条 select 语句只能有一个 default case。
 - select 语句的每次执行，包括 case 表达式求值和分支选择，都是独立的。

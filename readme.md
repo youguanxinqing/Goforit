@@ -42,6 +42,9 @@
 - 通道的基本操作
 - 通道操作什么时候会 panic
 
+[011](011/readme.md)
+- select 语句的使用
+- select、case 执行规则
 
 ---
 https://github.com/hyper0x/Golang_Puzzlers

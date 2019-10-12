@@ -35,3 +35,29 @@ func PrinteToStd(str string) (byteNum int, err error) {
 闭包体现的是由“不确定”变为“确定”的一个过程。
 - 闭包函数因为引用了自由变量，呈现出一种“不确定”的状态，也叫“开放”状态。即：闭包函数内部逻辑并不完整，有一部分逻辑需要自由变量参与完成，但自由变量代表了什么在闭包函数被定义的时候是未知的。
 - 直到程序运行到闭包时，自由变量有了确定的值，函数状态才由不确定变为确定。
+
+闭包函数示例：
+```go
+type operate func(int, int) int
+type calculateFunc func(int, int) (int, error)
+
+func genCalculator(op operate) calculateFunc {
+	return func(x, y int) (int, error) {
+		if op == nil {
+			return 0, errors.New("op is nil")
+		}
+		return op(x, y), nil
+	}
+}
+```
+- 使用闭包可以延迟实现一部分程序逻辑或功能。更准确的说：我们在动态地生成那部分程序逻辑。借此可以在程序运行过程中，根据需要生成功能不同的函数。
+
+3. 传入函数的那些数值后来都怎么样了？(code: ChangePassValue)
+
+**所有传给函数的参数值都会被复制**，函数在其内部使用的并不是参数值的原值，而是它的副本。
+- 数组是值类型，所以每次作为参数传递都会拷贝它的全部内容。
+- 对于引用类型(切片，字典，通道)，作为参数传递也会拷贝它们本身，但不会拷贝它们引用的底层数据。(浅拷贝而不是深拷贝)
+
+# 关于函数传参的注意事项
+
+不要把程序的细节暴露给外界，也尽量不要让外界的变动影响到你的程序。

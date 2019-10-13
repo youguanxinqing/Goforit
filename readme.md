@@ -46,5 +46,14 @@
 - select 语句的使用
 - select、case 执行规则
 
+[012](012/readme.md)
+- 函数的用法。
+- 高阶函数。
+- 闭包。
+ 
+[013](013/readme.md)
+- 结构体的基本概念。
+- 指针方法与值方法的区别。
+
 ---
 https://github.com/hyper0x/Golang_Puzzlers

@@ -28,4 +28,16 @@ func main() {
 ```
 - 问：程序会打印什么？
 - 答：什么都不输出。
-- 原因：。
+- 原因：非干预情况下，主 goroutine 不会等其他 goroutine 执行完，该结束的时候就会结束。主 goroutine 执行结束后，程序就会结束运行。
+
+(
+当程序执行到一条 go 语句的时候，会先试图从某个存放空闲的 G 的队列中获取一个 G（goroutine），如果没有空闲的，就创建一个新的 G。拿到 G 之后，运行时系统会将 G 去包装当前的 go 函数，然后将这个 G 追加到某个存放可运行的 G 的队列中。该队列总是先入先出顺序。
+)
+
+2. 如何让主 goroutine 等待其他 goroutine？
+
+通道方式解决。（code: WaitGoroutineByChan）
+- 作为信号传输的时候，通常建议使用 struct{}，对应**类型值的表示只有一个 struct{}{}**。
+- struct{}{} 占用内存空间 0 字节，这个值 Go 程序中永远只会存在一份。
+
+3. 如何让 goroutine 按照既定的顺序运行？(code: OrderedGoroutine)

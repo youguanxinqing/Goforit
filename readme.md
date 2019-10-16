@@ -67,5 +67,8 @@
 - goroutine
 - goroutine 的顺序执行
 
+[018](018/readme.md)
+- range 语句的注意事项
+- switch 语句的注意事项
 ---
 https://github.com/hyper0x/Golang_Puzzlers

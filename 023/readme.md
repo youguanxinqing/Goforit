@@ -46,4 +46,4 @@ go test -bench=. -run=^$ [package_path]
 最大 P 数量表示运行 goroutine 的逻辑 CPU 的最大个数。runtime.GOMAXPROCS 可以修改最大 P 数量。标记 -cpu 可以设置一个最大 P 数量的列表，供命令在多次测试时使用。
 
 go test 执行性能测试时会有一个正整数，其 `b.N` 表示。go test 会先默认将其设置为 1，然后执行测试函数，如果执行时间没有超过默认上限时间，将 b.N 增大，继续执行，多次往复，直到执行时间 >= 上限时间。最后 b.N 的值会输出在测试结果中。
-[](/023/png/78d4c73a9aa9d48b59d3fd304d4b2069.png)
+![](/023/png/78d4c73a9aa9d48b59d3fd304d4b2069.png)

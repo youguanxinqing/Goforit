@@ -30,6 +30,17 @@ go test -cpu=2,4 ...
 设置同一个被测代码包中的功能测试函数的最大并发执行数。默认是最大 P 数量，（untime.GOMAXPROCS(0) 获得 ）
 
 默认情况下，同一个被测代码中的多个**功能测试**函数，会串行的被执行。当需要并发执行的时候，需要在功能函数中显示地调用 t.Parallel()。
-- 注意：不论 t.Parallel()，同一个功能函数的多次执行对
+- 注意：不论 t.Parallel()，**同一个功能函数**的多次执行一定是串行的。
+- -parallel 标记对性能测试无效。（启动性能测试的命令：go run -benck=.）
 
 2. 性能测试函数中的计时器是做什么用的？
+
+testing.B 类型的指针方法有：StartTimer,StopTimer,ResetTimer。利用 StartTimer() 和 StopTimer() 可以更精细的控制计时器。(code: TestTimer)
+
+# 开启覆盖度分析 补充
+```bash
+go test ... -coverprofile=xxxx.out
+
+go tool cover -html=xxxx.out  # 转 html 文件
+```
+

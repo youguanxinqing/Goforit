@@ -83,5 +83,10 @@
 - go test 的使用入门
 - 性能测试与功能测试的差异处
 
+[025](025/readme.md)
+- go test 标记：cpu,count,parallel
+- 开启覆盖度分析：-coverprofile=xxx.out
+
+
 ---
 https://github.com/hyper0x/Golang_Puzzlers

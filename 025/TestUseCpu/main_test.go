@@ -3,6 +3,7 @@ package main
 import "testing"
 
 func TestHello(t *testing.T) {
+	t.Parallel()
 	if "zhong" != hello() {
 		t.Fail()
 	}
@@ -11,6 +12,7 @@ func TestHello(t *testing.T) {
 }
 
 func TestCalc(t *testing.T) {
+	t.Parallel()
 	if 512 != calc() {
 		t.Fail()
 	}
@@ -22,6 +24,6 @@ func BenchmarkHello(b *testing.B) {
 	hello()
 }
 
-func BenchmarCalc(b *testing.B) {
+func BenchmarkCalc(b *testing.B) {
 	calc()
 }

@@ -45,3 +45,21 @@ sync.RWMutex 是读写锁。一个读写锁包含读锁和写锁，sync.RWMutex 
 - **写锁**被锁定的情况下，**再锁定读锁**，**阻塞**当前 goroutine。
 - **读锁**被锁定的情况下，**再锁定写锁**，**阻塞**当前 goroutine。
 - **读锁**被锁定的情况下，**再锁定读锁**，**不阻塞**当前 goroutine。
+
+即：多个写操作不能同时进行，写与读不能同时进行，但是，多个读可以同时进行。对写锁解锁，会唤醒所有读锁进行锁定；对读锁解锁，只能唤醒一个写锁锁定。
+
+当写锁未被锁定时，或者读锁未被锁定时，对它们的解锁操作都会引起程序崩溃。
+
+3. 获取读写锁中的读锁
+```go
+// source go code
+
+func (rw *RWMutex) RLocker() Locker {
+	return (*rlocker)(rw)
+}
+
+type rlocker RWMutex  /* 为读锁绑定自己的专属 Lock,Unlock */
+
+func (r *rlocker) Lock()   { (*RWMutex)(r).RLock() }
+func (r *rlocker) Unlock() { (*RWMutex)(r).RUnlock() 
+```

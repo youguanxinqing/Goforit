@@ -11,4 +11,6 @@ func main() {
 	fmt.Println("start lock")
 	lock.Lock()
 	lock.Lock()
+
+	sync.RWMutex{}
 }

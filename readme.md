@@ -88,5 +88,12 @@
 - 开启覆盖度分析：-coverprofile=xxx.out
 
 
+[026](026/readme.md)
+- 读写锁的使用与注意事项
+
+
+[027](027/readme.md)
+- 条件锁的使用与注意事项
+
 ---
 https://github.com/hyper0x/Golang_Puzzlers

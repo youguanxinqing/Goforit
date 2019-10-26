@@ -99,5 +99,8 @@
 [029](029/readme.md)
 - 原子的相关操作与注意事项（sync/atomic）
 
+[031](031/readme.md)
+- WaitGroup 与 Once
+
 ---
 https://github.com/hyper0x/Golang_Puzzlers

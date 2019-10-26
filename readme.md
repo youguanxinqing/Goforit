@@ -96,5 +96,8 @@
 [027](027/readme.md)
 - 条件变量的使用与注意事项
 
+[029](029/readme.md)
+- 原子的相关操作与注意事项（sync/atomic）
+
 ---
 https://github.com/hyper0x/Golang_Puzzlers

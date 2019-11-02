@@ -48,7 +48,15 @@ var DefaultTransport RoundTripper = &Transport{
 - ResponseHeaderTimeout 表示 从系统内核收到请求，到内核收到响应的最大时长。DefaultTransport 没有该字段。
 - ExpectContinueTimeout 表示 客户端接收请求报文头后，等待接收第一个响应报文头的最长时间。当客户端想把很大的报文 POST 给服务器时，可先发送一个含有 **“Expect: 100-continue”** 的请求报文头，询问服务器是否愿意接收该报文。如果该字段不大于 0，表示请求报文会立即发送出去，可能造成网络资源浪费。
 - TLSHandshakeTimeout 表示 建立 TLS 的握手超时时间。该值为 0 表示没有限制。
+- KeepAlive 表示 TCP 层的探测包。
 
 对于当前 http.Transport 而言，**MaxIdleConns** 针对空闲总数，**MaxIdleConnsPerHost** 针对每个服务的空闲连接总数。
 - 判别不同服务的方式：网络地址，网络协议，代理。
+- MaxIdleConnsPerHost 默认值为 2。
+
 ----
+
+连接复用的两种情况：
+- 针对同一个服务，有新的 HTTP 请求被递交，连接被再次使用。
+- 不再对该网络服务器有 HTTP 请求，连接被闲置。(如果分配给一个服务的连接过多，也会造成空闲连接)
+- 如果想杜绝空闲连接，则 DisableKeepAlives 置为 true。(每一次 HTTP 请求被提交都产生一个新的连接，明显增重网络服务与客户端压力)

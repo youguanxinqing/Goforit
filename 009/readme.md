@@ -71,7 +71,7 @@ fmt.Println(m == nil)  // true
 m["zhong"] = 512  // panic，运行是发生，能够通过编译
 ```
 
-# map 是兵法安全的吗？ 补充
+# map 是并发安全的吗？ 补充
 不是。
 
 判断一个操作是否是原子的，可以使用 `go run race` 做检测。
